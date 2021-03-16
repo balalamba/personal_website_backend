@@ -1,0 +1,8 @@
+/node_modules
+access.log
+public
+thumbs
+.env
+package-lock.json
+.vscode
+error.log
