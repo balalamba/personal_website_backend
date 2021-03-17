@@ -67,5 +67,8 @@ EMAIL_SENDER_PASSWORD='robot_mail_password'
 #### Start using PM2 
 ``` npm run start ```
 #### Copy necessary code to remote server 
-``` npm run vpsdeploy --user=username --dest=server:~/folder ```
+You need to adapt vpsdeploy script first.
+"vpsdeploy": "rsync -avr -e 'ssh -l <user>' --exclude '.git' --exclude 'package-lock.json' --exclude 'node_modules' ./ <server_adress>:~/<destination_folder>"
+Then: 
+``` npm run vpsdeploy``` to send files to remote server.
 
