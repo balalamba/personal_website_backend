@@ -6,6 +6,13 @@ jest.mock('../../modules/fs.js');
 import fsModule from '../../modules/fs.js';
 
 describe('parseImages Module',() => {
+    beforeEach(() => {
+        global.config = {
+            blogFolder: "",
+            photosFolder: "",
+        };
+    });
+    
     test('Find image links', () => {
         const expectation = 
         [

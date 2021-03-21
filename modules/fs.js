@@ -4,8 +4,6 @@ const path = require('path');
 const del = require('del');
 
 var fsModule = {};
-const subfolder = global.config.blogFolder + '/';
-const photosfolder = global.config.photosFolder + '/';
 
 // fsModule.encode_base64 = function(filename) {
 //     fs.readFile(path.join(__dirname, '/public/', filename), function(error, data) {
@@ -20,6 +18,7 @@ const photosfolder = global.config.photosFolder + '/';
 //     });
 // };
 fsModule.decode_base64 = async function(base64str, filename) {
+    const subfolder = global.config.blogFolder + '/';
     let buf = Buffer.from(base64str, 'base64');
 
     return new Promise((resolve, reject) => {
@@ -38,6 +37,7 @@ fsModule.deleteMultipleFile = function(fileObject) {
 }
 
 fsModule.deletePostFiles = function(locale, slug) {
+    const subfolder = global.config.blogFolder + '/';
     let fullPath = path.join(__dirname, '../' + global.config.staticPath + subfolder + locale + '/' + slug);
     return new Promise((resolve, reject) => {
         fs.rmdir(fullPath, { recursive: true }, function(error) {
@@ -48,8 +48,9 @@ fsModule.deletePostFiles = function(locale, slug) {
 
 }
 fsModule.deleteGalleryFiles = async function(_id, parent) {
-        let fullPath = path.join(__dirname, '../' + global.config.staticPath + photosfolder, _id);
-        return await del([fullPath + '/**', fullPath], {force:true});
+    const photosfolder = global.config.photosFolder + '/';
+    let fullPath = path.join(__dirname, '../' + global.config.staticPath + photosfolder, _id);
+    return await del([fullPath + '/**', fullPath], {force:true});
 
 }
 
