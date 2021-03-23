@@ -4,7 +4,7 @@
     "description": "Personal website API by employing Clean Architecture",
     "main": "index.js",
     "scripts": {
-        "start": "PORT=8082 NODE_ENV=production pm2 start --interpreter babel-node ./index.js --name 'Personal website API'",
+        "start": "PORT=8082 NODE_ENV=production pm2 start --interpreter babel-node ./index.js --name 'Personal-website-API'",
         "dev": "NODE_DEBUG=fs NODE_ENV=development nodemon --exec babel-node ./index.js",
         "prod": "PORT=8082 NODE_ENV=production nodemon --exec babel-node ./index.js",
         "test": "jest",
